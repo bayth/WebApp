@@ -1,0 +1,23 @@
+﻿@model Library.Models.Book
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Styles/book.css")" rel="stylesheet" type="text/css" />
+    <title>ModifyBook</title>
+</head>
+<body>
+    @using (Html.BeginForm("ShowOne", "Book"))
+    {
+        @Html.TextBoxFor(model => model.Name, new { Value = "" })
+        <input class="search-button1" type="submit" value="Search" />
+    }
+</body>
+</html>
+

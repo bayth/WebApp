@@ -1,0 +1,38 @@
+﻿@model Library.Models.Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List of books</title>
+</head>
+<body>
+    <br />
+    <br />
+    <table class="table table-striped table-inverse">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Category</th>
+        </tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Html.DisplayFor(model => model.Author)</td>
+            <td>@Html.DisplayFor(model => model.Category)</td>
+            <td class="btn-info">@Html.ActionLink("Modify", "ModifyBook", new { id = Model.Id })</td>
+            <td class="btn-danger">@Html.ActionLink("Delet", "DeletBook", new { id = Model.Id })</td>
+        </tr>
+    </table>
+
+    <br />
+    <div>
+        <a href="/book" title="Back to site" class="error-back">back</a>
+    </div>
+    
+</body>
+</html>
+

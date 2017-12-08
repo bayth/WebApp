@@ -1,0 +1,38 @@
+﻿@model List<Library.Models.Book>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List of books</title>
+</head>
+<body>
+    <br />
+    <br />
+    <table class="table table-striped table-inverse">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Category</th>     
+        </tr>
+        @foreach (var books in Model)
+        {
+        <tr>
+            <td>@books.Name</td>
+            <td>@books.Author</td>
+            <td>@books.Category</td>
+            <td class="btn-info">@Html.ActionLink("Modify", "ModifyBook", new { id = books.Id })</td>
+            <td class="btn-danger">@Html.ActionLink("Delete", "DeletBook", new { id = books.Id })</td>
+        </tr>
+        }
+        
+    </table>
+    <br />
+    
+    <div>@Html.ActionLink("Add book", "AddBook")</div>
+</body>
+</html>
